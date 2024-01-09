@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELAPTOP", "ELAPTOP\ELAPTOP.csproj", "{3496269F-685C-4379-A0B2-C8C94AF53B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{AD62868D-BE14-4263-8C23-A53988FA4088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{F239D716-9593-401D-932F-271CADD9F23D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3496269F-685C-4379-A0B2-C8C94AF53B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3496269F-685C-4379-A0B2-C8C94AF53B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3496269F-685C-4379-A0B2-C8C94AF53B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3496269F-685C-4379-A0B2-C8C94AF53B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD62868D-BE14-4263-8C23-A53988FA4088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD62868D-BE14-4263-8C23-A53988FA4088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD62868D-BE14-4263-8C23-A53988FA4088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD62868D-BE14-4263-8C23-A53988FA4088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F239D716-9593-401D-932F-271CADD9F23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F239D716-9593-401D-932F-271CADD9F23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F239D716-9593-401D-932F-271CADD9F23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F239D716-9593-401D-932F-271CADD9F23D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B802EB5C-4F7F-48EA-805D-D6DD54CC6572}
+	EndGlobalSection
+EndGlobal
