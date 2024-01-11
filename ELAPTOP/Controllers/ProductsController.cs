@@ -31,5 +31,24 @@ namespace ELAPTOP.Controllers
             return await _repo.GetProductByIdAsync(id);
         }
 
+        [HttpGet("brands")]
+
+        public async Task<ActionResult<List<ProductBrand>>> GetProductBrands()
+        {
+            var prodcutBrands =  await _repo.GetProductBrandsAsync();
+
+            return Ok(prodcutBrands);
+        }
+
+        [HttpGet("types")]
+
+        public async Task<ActionResult<List<ProductType>>> GetProductType()
+        {
+            var productTypes = await _repo.GetProductTypesAsync();
+
+            return Ok(productTypes);
+        }
+
+
     }
 }
