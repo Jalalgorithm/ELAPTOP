@@ -3,14 +3,14 @@ using Core.Interfaces;
 using Core.Model;
 using Core.Specifications;
 using ELAPTOP.Dtos;
+using ELAPTOP.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ELAPTOP.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController : ControllerBase
+   
+    public class ProductsController : BaseApiController
     {
         private readonly IGenericRepository<Product> productrepo;
         private readonly IGenericRepository<ProductType> productTypeRepo;
@@ -39,10 +39,15 @@ namespace ELAPTOP.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse),  StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductToReturnDto>> GetProductById(int id)
         {
             var spec = new ProductWithTypesAndBrandSpecification(id);
             var product = await productrepo.GetEntityWithSpec(spec);
+
+            if (product == null)
+                return NotFound(new ApiResponse(404));
 
             return _mapper.Map<Product, ProductToReturnDto>(product);
 
