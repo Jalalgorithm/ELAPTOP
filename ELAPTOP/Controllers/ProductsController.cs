@@ -29,9 +29,9 @@ namespace ELAPTOP.Controllers
 
         [HttpGet]
 
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProduct()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProduct(string sort , int? brandId , int? typeId)
         {
-            var spec = new ProductWithTypesAndBrandSpecification();
+            var spec = new ProductWithTypesAndBrandSpecification(sort , brandId , typeId);
 
             var product = await productrepo.ListAsync(spec);
 
