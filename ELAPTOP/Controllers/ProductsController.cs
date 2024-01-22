@@ -4,6 +4,7 @@ using Core.Model;
 using Core.Specifications;
 using ELAPTOP.Dtos;
 using ELAPTOP.Errors;
+using ELAPTOP.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,13 +30,20 @@ namespace ELAPTOP.Controllers
 
         [HttpGet]
 
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProduct(string sort , int? brandId , int? typeId)
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProduct([FromQuery]ProductSpecParams productSpecParams)
         {
-            var spec = new ProductWithTypesAndBrandSpecification(sort , brandId , typeId);
+            var spec = new ProductWithTypesAndBrandSpecification(productSpecParams);
 
-            var product = await productrepo.ListAsync(spec);
+            var countSpec = new ProductWithFiltersForCountSpecification(productSpecParams);
 
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(product));
+            var totalItems = await productrepo.CountAsync(countSpec);
+
+
+            var products = await productrepo.ListAsync(spec);
+
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
+            return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageIndex , productSpecParams.PageSize , totalItems , data));
         }
 
         [HttpGet("{id}")]
